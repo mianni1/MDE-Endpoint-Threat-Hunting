@@ -1,0 +1,4 @@
+DeviceProcessEvents
+| where Timestamp > ago(7d)
+| where ProcessCommandLine contains ("sudo", "su")
+| project Timestamp, DeviceName, AccountName, ProcessCommandLine, InitiatingProcessAccountName

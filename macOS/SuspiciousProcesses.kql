@@ -1,0 +1,4 @@
+DeviceProcessEvents
+| where Timestamp > ago(7d)
+| where ProcessName has_any("suspiciousProcess1", "suspiciousProcess2")
+| project Timestamp, DeviceName, AccountName, ProcessName, ProcessCommandLine, InitiatingProcessAccountName

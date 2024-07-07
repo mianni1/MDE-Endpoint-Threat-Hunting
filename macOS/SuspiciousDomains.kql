@@ -1,0 +1,4 @@
+DeviceNetworkEvents
+| where Timestamp > ago(7d)
+| where RemoteUrl has_any("suspiciousdomain.com", "malicious.com")
+| project Timestamp, DeviceName, AccountName, RemoteUrl, InitiatingProcessCommandLine

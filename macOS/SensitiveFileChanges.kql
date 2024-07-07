@@ -1,0 +1,5 @@
+DeviceFileEvents
+| where Timestamp > ago(7d)
+| where FolderPath has_any("/etc", "/var")
+| where ActionType in ("FileCreated", "FileDeleted", "FileModified")
+| project Timestamp, DeviceName, FolderPath, FileName, ActionType, InitiatingProcessCommandLine, InitiatingProcessAccountName

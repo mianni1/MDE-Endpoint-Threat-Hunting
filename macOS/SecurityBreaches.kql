@@ -1,0 +1,4 @@
+DeviceEvents
+| where Timestamp > ago(7d)
+| where ActionType == "SecurityBreach"
+| project Timestamp, DeviceName, AccountName, ActionType, InitiatingProcessCommandLine, InitiatingProcessAccountName

@@ -1,0 +1,5 @@
+DeviceNetworkEvents
+| where Timestamp > ago(7d)
+| where RemoteIP != "0.0.0.0"
+| where LocalPort in (22, 3389)
+| project Timestamp, DeviceName, LocalIP, LocalPort, RemoteIP, RemotePort, InitiatingProcessCommandLine

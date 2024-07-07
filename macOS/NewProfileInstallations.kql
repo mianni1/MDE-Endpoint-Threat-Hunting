@@ -1,0 +1,4 @@
+DeviceEvents
+| where Timestamp > ago(7d)
+| where ActionType == "ProfileInstallation"
+| project Timestamp, DeviceName, AccountName, ProfileName, InitiatingProcessAccountName

@@ -1,0 +1,5 @@
+DeviceProcessEvents
+| where Timestamp > ago(7d)
+| where FolderPath startswith "/Users/"
+| where FileName endswith ".sh" or FileName endswith ".py" or FileName endswith ".pl" or FileName endswith ".zsh"
+| project Timestamp, DeviceName, AccountName, FolderPath, FileName, ProcessCommandLine, InitiatingProcessAccountName

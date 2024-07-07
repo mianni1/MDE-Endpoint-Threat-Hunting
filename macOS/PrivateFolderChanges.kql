@@ -1,0 +1,5 @@
+DeviceFileEvents
+| where Timestamp > ago(7d)
+| where ActionType in ("FileCreated", "FileModified")
+| where FolderPath startswith "/private/"
+| project Timestamp, DeviceName, FolderPath, FileName, ActionType, InitiatingProcessCommandLine, InitiatingProcessAccountName

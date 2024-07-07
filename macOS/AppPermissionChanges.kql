@@ -1,0 +1,4 @@
+DeviceEvents
+| where Timestamp > ago(7d)
+| where ActionType == "AppPermissionChange"
+| project Timestamp, DeviceName, AccountName, AppName, NewPermissions, InitiatingProcessAccountName

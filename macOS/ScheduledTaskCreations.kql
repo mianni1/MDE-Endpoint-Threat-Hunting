@@ -1,0 +1,4 @@
+DeviceProcessEvents
+| where Timestamp > ago(7d)
+| where FileName in ("cron", "launchd", "launchctl")
+| project Timestamp, DeviceName, AccountName, FileName, ProcessCommandLine, InitiatingProcessAccountName

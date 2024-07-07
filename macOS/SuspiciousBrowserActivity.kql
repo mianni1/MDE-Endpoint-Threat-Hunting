@@ -1,0 +1,5 @@
+DeviceNetworkEvents
+| where Timestamp > ago(7d)
+| where FileName in ("Safari", "Chrome", "Firefox", "Opera", "Brave")
+| where RemoteUrl has_any("phishing", "malware", "suspicious", "hxxp://", "hxxps://")
+| project Timestamp, DeviceName, AccountName, RemoteUrl, InitiatingProcessCommandLine

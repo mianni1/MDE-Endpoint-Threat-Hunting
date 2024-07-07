@@ -1,0 +1,5 @@
+DeviceProcessEvents
+| where Timestamp > ago(7d)
+| where FileName in ("sh", "bash", "zsh")
+| where ProcessCommandLine has_any("rm -rf", "curl ", "wget ", "dd if=", "nc -l")
+| project Timestamp, DeviceName, AccountName, FileName, ProcessCommandLine, InitiatingProcessAccountName
